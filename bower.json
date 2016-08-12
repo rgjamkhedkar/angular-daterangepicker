@@ -20,7 +20,7 @@
   ],
   "dependencies": {
     "angular": "^1.2.17",
-    "bootstrap": "^3.0.0",
+    "bootstrap-sass": "~3.3.6",
     "bootstrap-daterangepicker": "^2.0.0"
   },
   "devDependencies": {
