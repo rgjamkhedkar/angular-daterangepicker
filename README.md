@@ -3,6 +3,10 @@
 
 Angular.js directive for Dan Grossmans's [Bootstrap Datepicker](https://github.com/dangrossman/bootstrap-daterangepicker).
 
+## Maintainer needed!
+Hello, as you may noticed, we have troubles maintaining this repo. So if there is somebody willing to help merging PRs, testing and releasing, please contact me at lukas.marek(at)fragaria.cz.
+Thank you!
+
 [DEMO](http://fragaria.github.io/angular-daterangepicker/)
 
 **Beware: Use [Bootstrap Datepicker](https://github.com/dangrossman/bootstrap-daterangepicker) v 2.0.0 and newer!
@@ -72,7 +76,29 @@ The date picker can be further customized by passing in the `options` attribute.
 
 ```
 <input date-range-picker class="form-control date-picker" type="text" ng-model="date"
-min="'2014-02-23'" max="'2015-02-25'" options="{separator: ":"}"/>
+min="'2014-02-23'" max="'2015-02-25'" options="{locale: {separator: ":"}}"/>
+```
+
+## Example options
+
+```
+$scope.options = {
+      applyClass: 'btn-green',
+      locale: {
+        applyLabel: "Apply",
+        fromLabel: "From",
+        format: "YYYY-MM-DD", //will give you 2017-01-06
+	//format: "D-MMM-YY", //will give you 6-Jan-17
+	//format: "D-MMMM-YY", //will give you 6-January-17
+        toLabel: "To",
+        cancelLabel: 'Cancel',
+        customRangeLabel: 'Custom range'
+      },
+      ranges: {
+        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+        'Last 30 Days': [moment().subtract(29, 'days'), moment()]
+      }
+    }
 ```
 
 Optionally, event handlers can be passed in through the `eventHandlers` attribute of `options`.
@@ -106,8 +132,9 @@ See [original documentation](https://github.com/dangrossman/bootstrap-daterangep
 ## Issues and Pull Requests
 The PRs are more than welcome – thank you for those.
 
-Please send PRs only for `*.coffee` code. Javascript and minified Javascript should be generated with `grunt dist` command
-just before the commit.
+Please send me PRs only for `*.coffee` code. **Please, do not include Javascript and minified Javascript into PRs.**
+Javascript and minified Javascript will be generated later with `grunt dist` command
+just before the release.
 
 [![Throughput Graph](https://graphs.waffle.io/fragaria/angular-daterangepicker/throughput.svg)](https://waffle.io/fragaria/angular-daterangepicker/metrics)
 
